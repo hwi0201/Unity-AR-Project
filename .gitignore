@@ -4,6 +4,7 @@ Temp/
 Logs/
 UserSettings/
 ContentPackages/
+Build/
 
 # IDE 관련
 *.csproj
