@@ -1,0 +1,84 @@
+# =============== Unity 기본 무시 폴더 ===============
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+Recordings/
+sysinfo.txt
+
+# =============== OS 별 자동 생성 파일 ===============
+# Windows
+[Dd]esktop.ini
+[Tt]humbs.db
+ehthumbs.db
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# =============== IDE 관련 파일 ===============
+# Visual Studio / Rider
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+
+# =============== Unity 빌드 출력물 ===============
+*.apk
+*.aab
+*.xcodeproj/
+*.xcworkspace/
+*.xcuserstate
+*.xcuserdata/
+*.app
+*.ipa
+*.exe
+
+# =============== 기타 불필요한 ===============
+*.unitypackage
+*.meta~
+*.bak
+*.old
+*.tmp
+*.swp
+*.log
+*.orig
+
+# =============== Addressables, Cache 등 ===============
+/Library/
+*/Library/
+*.Addressables/
+
+.utmp/
+ContentPackages/
+
+# Unity 기본 무시 폴더
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+
+# IDE 관련
+*.csproj
+*.sln
+.vscode/
+.idea/
