@@ -17,13 +17,18 @@ public class UIManager : MonoBehaviour
     public GameObject successPopup;
     private int currentPageIndex = 0;
 
-    void Start()
-
+void Start()
+{
+    // 다른 팝업들은 시작할 때 모두 끈다.
+    if (successPopup != null) successPopup.SetActive(false);
+    
+    // Info 팝업을 켜고, 항상 첫 페이지를 보여주도록 설정한다.
+    if (infoPopup != null)
     {
-        // 시작 시 팝업들은 상태로 시작
-        infoPopup.SetActive(false);
-        successPopup.SetActive(false);
+        infoPopup.SetActive(true);
+        ShowPage(0);
     }
+}
 
     public void ToggleInfoPopup()
     {

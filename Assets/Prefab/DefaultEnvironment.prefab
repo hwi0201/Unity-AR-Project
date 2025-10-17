@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 0.01, z: 2.5}
+  m_LocalScale: {x: 5, y: 0.01, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4365528357719543085}
@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 3583619555576856804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.746, y: 0.02, z: -0.265}
+  m_LocalPosition: {x: -0.517, y: 0.02, z: -0.553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Image: {fileID: 2800000, guid: 63ab0506995a8404b8e8ea8e7b634bfc, type: 3}
-  m_ImagePhysicalSizeMeters: {x: 0.2, y: 0.2}
+  m_ImagePhysicalSizeMeters: {x: 0.15, y: 0.15}
   m_QuadMesh: {fileID: 0}
   m_QuadMaterial: {fileID: 0}
   m_QuadMeshFilter: {fileID: 6274445819058282171}
@@ -255,7 +255,7 @@ Transform:
   m_GameObject: {fileID: 3704146744850579173}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.573, y: 0.028, z: -0.547}
+  m_LocalPosition: {x: 0.729, y: 0.028, z: -0.677}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Image: {fileID: 2800000, guid: 083867a18bbe4144a8a290fee9560079, type: 3}
-  m_ImagePhysicalSizeMeters: {x: 0.2, y: 0.2}
+  m_ImagePhysicalSizeMeters: {x: 0.15, y: 0.15}
   m_QuadMesh: {fileID: 0}
   m_QuadMaterial: {fileID: 0}
   m_QuadMeshFilter: {fileID: 2170777907442764786}
@@ -360,7 +360,7 @@ Transform:
   m_GameObject: {fileID: 3921039347142658807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0.028, z: 0.392}
+  m_LocalPosition: {x: 0.057, y: 0.028, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Image: {fileID: 2800000, guid: 06ccea3aba71321409a0159ae28bdebd, type: 3}
-  m_ImagePhysicalSizeMeters: {x: 0.2, y: 0.2}
+  m_ImagePhysicalSizeMeters: {x: 0.15, y: 0.15}
   m_QuadMesh: {fileID: 0}
   m_QuadMaterial: {fileID: 0}
   m_QuadMeshFilter: {fileID: 3061316154534624205}
@@ -466,8 +466,8 @@ Transform:
   m_GameObject: {fileID: 5056272964426416779}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.01, y: 1, z: 2.5}
+  m_LocalPosition: {x: -2.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.01, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4365528357719543085}

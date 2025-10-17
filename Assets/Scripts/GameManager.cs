@@ -97,6 +97,8 @@ public class GameManager : MonoBehaviour
             StartCoroutine(ShowFeedback(successFeedback));
             currentNoteIndex++;
 
+            Debug.Log($"줄바꿈 체크: 현재 노트 인덱스 {currentNoteIndex} / 이 줄의 총 노트 수 {currentSheetMusic.notesPerLine[currentLineIndex]}");
+
             // 줄바꿈 체크 로직
             int notesInCurrentLine = currentSheetMusic.notesPerLine[currentLineIndex];
             if (notesInCurrentLine > 0 && currentNoteIndex == notesInCurrentLine)
@@ -109,16 +111,27 @@ public class GameManager : MonoBehaviour
                 }
             }
 
+// 노래가 끝났다면, 바로 팝업을 띄우는 대신 딜레이 코루틴을 시작합니다.
             if (currentNoteIndex >= currentSong.notes.Length)
             {
-                if (successPopup != null) successPopup.SetActive(true);
-                currentSong = null;
+                StartCoroutine(ShowSuccessPopupWithDelay(0.5f)); // 0.5초 딜레이
             }
         }
         else
         {
             StartCoroutine(ShowFeedback(errorFeedback));
         }
+    }
+
+    IEnumerator ShowSuccessPopupWithDelay(float delay)
+    {
+        // 지정된 시간(delay)만큼 기다립니다.
+        yield return new WaitForSeconds(delay);
+
+        // 기다린 후에 악보를 끄고 팝업을 켭니다.
+        if (currentSheetMusic != null) currentSheetMusic.gameObject.SetActive(false);
+        if (successPopup != null) successPopup.SetActive(true);
+        currentSong = null;
     }
 
     public void ResetSong()
