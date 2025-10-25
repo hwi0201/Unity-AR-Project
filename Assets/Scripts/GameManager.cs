@@ -18,22 +18,26 @@ public class GameManager : MonoBehaviour
     public Image successFeedback;
     public Image errorFeedback;
     public GameObject successPopup;
+    [Tooltip("피드백 표시 시간 (초)")]
+    public float feedbackDuration = 0.15f;
+    [Tooltip("성공 팝업 표시 전 딜레이 (초)")] // 팝업 딜레이 변수 추가
+    public float successPopupDelay = 0.2f; // 기본 0.5초 딜레이
 
     [Header("Sheet Music UI")]
-    public GameObject[] sheetMusicUIs; // HUD Canvas에 있는 SheetMusic_star, SheetMusic_airplane 등을 연결
+    public GameObject[] sheetMusicUIs;
 
-    // --- 내부 변수 ---
     private Song currentSong;
     private int currentNoteIndex;
     private int currentLineIndex;
-    private SheetMusicInfo currentSheetMusic; // 현재 활성화된 악보의 SheetMusicInfo 컴포넌트
+    private SheetMusicInfo currentSheetMusic;
+    private Coroutine successFeedbackCoroutine;
+    private Coroutine errorFeedbackCoroutine;
 
     void Start()
     {
         if (successFeedback != null) successFeedback.gameObject.SetActive(false);
         if (errorFeedback != null) errorFeedback.gameObject.SetActive(false);
         if (successPopup != null) successPopup.gameObject.SetActive(false);
-        // 게임 시작 시 모든 악보 UI를 끈다
         if (sheetMusicUIs != null)
         {
             foreach (var ui in sheetMusicUIs)
@@ -43,10 +47,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // ImageTracker가 호출할 함수 (인자 1개)
     public void StartNewSong(string songName)
     {
-        // 이전에 켜져있던 악보가 있다면 끈다
         if (currentSheetMusic != null && currentSheetMusic.gameObject != null)
         {
             currentSheetMusic.gameObject.SetActive(false);
@@ -63,10 +65,8 @@ public class GameManager : MonoBehaviour
             currentNoteIndex = 0;
             currentLineIndex = 0;
 
-            // 이름이 같은 악보 UI를 찾아서 켜고, SheetMusicInfo 컴포넌트를 가져옴
             foreach (var ui in sheetMusicUIs)
             {
-                // UI 오브젝트 이름이 "SheetMusic_star" 형식이어야 함
                 if (ui.name == "SheetMusic_" + songName)
                 {
                     ui.SetActive(true);
@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            // 악보의 첫 페이지만 보여주도록 초기화
             if (currentSheetMusic != null)
             {
                 for (int i = 0; i < currentSheetMusic.lines.Length; i++)
@@ -94,12 +93,9 @@ public class GameManager : MonoBehaviour
 
         if (noteName == currentSong.notes[currentNoteIndex])
         {
-            StartCoroutine(ShowFeedback(successFeedback));
+            TriggerFeedback(successFeedback); // 개선된 피드백 호출
             currentNoteIndex++;
 
-            Debug.Log($"줄바꿈 체크: 현재 노트 인덱스 {currentNoteIndex} / 이 줄의 총 노트 수 {currentSheetMusic.notesPerLine[currentLineIndex]}");
-
-            // 줄바꿈 체크 로직
             int notesInCurrentLine = currentSheetMusic.notesPerLine[currentLineIndex];
             if (notesInCurrentLine > 0 && currentNoteIndex == notesInCurrentLine)
             {
@@ -111,42 +107,69 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-// 노래가 끝났다면, 바로 팝업을 띄우는 대신 딜레이 코루틴을 시작합니다.
+            // 노래가 끝났는지 확인
             if (currentNoteIndex >= currentSong.notes.Length)
             {
-                StartCoroutine(ShowSuccessPopupWithDelay(0.5f)); // 0.5초 딜레이
+                // ▼▼▼ 딜레이 후 팝업 띄우는 코루틴 호출 ▼▼▼
+                StartCoroutine(ShowSuccessPopupWithDelay(successPopupDelay));
             }
         }
         else
         {
-            StartCoroutine(ShowFeedback(errorFeedback));
+            TriggerFeedback(errorFeedback); // 개선된 피드백 호출
         }
     }
 
+    // ▼▼▼ 딜레이 후 팝업 띄우는 코루틴 ▼▼▼
     IEnumerator ShowSuccessPopupWithDelay(float delay)
     {
-        // 지정된 시간(delay)만큼 기다립니다.
+        // 마지막 피드백(✓)이 사라질 시간을 기다립니다.
         yield return new WaitForSeconds(delay);
 
-        // 기다린 후에 악보를 끄고 팝업을 켭니다.
-        if (currentSheetMusic != null) currentSheetMusic.gameObject.SetActive(false);
-        if (successPopup != null) successPopup.SetActive(true);
-        currentSong = null;
+        // 악보를 끄고 팝업을 켭니다.
+        if (currentSheetMusic != null && currentSheetMusic.gameObject != null)
+            currentSheetMusic.gameObject.SetActive(false);
+        if (successPopup != null)
+            successPopup.SetActive(true);
+
+        currentSong = null; // 노래 상태 초기화
     }
 
     public void ResetSong()
     {
-        if (currentSong != null)
+        // 팝업이 켜져있을 수 있으니 먼저 끈다.
+        if (successPopup != null) successPopup.SetActive(false);
+
+        if (currentSong != null) // Reset 시 currentSong이 null일 수 있으므로 null 체크 추가
         {
+            // StartNewSong은 currentSong을 다시 찾으므로 여기서 null로 만들 필요 없음
             StartNewSong(currentSong.name);
+        }
+        else
+        {
+             Debug.LogWarning("리셋할 현재 노래 정보가 없습니다.");
+             // 필요하다면 여기서 앱 초기 상태로 돌아가는 로직 추가 (예: InfoPopup 다시 켜기)
         }
     }
 
-    IEnumerator ShowFeedback(Image feedbackImage)
+    // 피드백 코루틴 관리 함수
+    void TriggerFeedback(Image feedbackImage)
     {
-        if (feedbackImage == null) yield break;
+        if (feedbackImage == null) return;
+        Coroutine runningCoroutine = (feedbackImage == successFeedback) ? successFeedbackCoroutine : errorFeedbackCoroutine;
+        if (runningCoroutine != null) StopCoroutine(runningCoroutine);
+        Coroutine newCoroutine = StartCoroutine(ShowFeedbackRoutine(feedbackImage));
+        if (feedbackImage == successFeedback) successFeedbackCoroutine = newCoroutine;
+        else errorFeedbackCoroutine = newCoroutine;
+    }
+
+    // 피드백 코루틴
+    IEnumerator ShowFeedbackRoutine(Image feedbackImage)
+    {
         feedbackImage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(feedbackDuration);
         feedbackImage.gameObject.SetActive(false);
+        if (feedbackImage == successFeedback) successFeedbackCoroutine = null;
+        else errorFeedbackCoroutine = null;
     }
 }

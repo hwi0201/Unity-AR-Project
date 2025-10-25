@@ -21,8 +21,8 @@ MonoBehaviour:
       m_GuidLow: 5163708982838854654
       m_GuidHigh: 11344704963922332053
     m_SerializedTextureGuid:
-      m_GuidLow: 9512896926411588870
-      m_GuidHigh: 18179733703141025976
+      m_GuidLow: 16624088917543851106
+      m_GuidHigh: 547139210801918522
     m_Size: {x: 0.15, y: 0.15}
     m_SpecifySize: 1
     m_Name: star
@@ -31,8 +31,8 @@ MonoBehaviour:
       m_GuidLow: 5160053794181400674
       m_GuidHigh: 4592616405485877921
     m_SerializedTextureGuid:
-      m_GuidLow: 3608714196038773306
-      m_GuidHigh: 13681526523362123785
+      m_GuidLow: 11562088992168214984
+      m_GuidHigh: 7502549668427934618
     m_Size: {x: 0.15, y: 0.15}
     m_SpecifySize: 1
     m_Name: butterfly
@@ -41,8 +41,8 @@ MonoBehaviour:
       m_GuidLow: 5370497541128273036
       m_GuidHigh: 804852903810334374
     m_SerializedTextureGuid:
-      m_GuidLow: 4703037559179601825
-      m_GuidHigh: 8719064441587540648
+      m_GuidLow: 12669825590059916438
+      m_GuidHigh: 8864259011894898442
     m_Size: {x: 0.15, y: 0.15}
     m_SpecifySize: 1
     m_Name: airplane
