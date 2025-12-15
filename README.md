@@ -14,6 +14,14 @@ An **AR music education game** that recognizes physical image markers to display
 
 ---
 
+## 🎬 Demo Video
+
+[![AR Piano Learning Game Demo](https://i.ibb.co/jPbBB9FS/appicon.png)](https://youtube.com/shorts/iaHR3xAzIWU)
+
+*Click the image above to watch the demo video!*
+
+---
+
 ## 🎮 How to Play
 
 ### Step 1: Image Marker Recognition
