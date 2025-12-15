@@ -87,7 +87,7 @@ When all notes are played correctly, a congratulations popup appears!
 ## 🛠 Tech Stack
 
 ### Development Environment
-- **Unity 2021.2+**
+- **Unity 6**
 - **AR Foundation 5.x**
 - **ARKit** (iOS)
 - **TextMeshPro** (UI Text)
@@ -126,9 +126,9 @@ Unity-AR-Project/
 
 ## 🎼 Available Songs
 
-✈️ **Airplane** 
-⭐ **Twinkle Twinkle Little Star** 
-🦋 **Butterfly** 
+- ✈️ **Airplane** 
+- ⭐ **Twinkle Twinkle Little Star** 
+- 🦋 **Butterfly** 
 
 ---
 
