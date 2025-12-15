@@ -102,14 +102,6 @@ Unity-AR-Project/
 2. **Intuitive UX**: Interface understandable without instructions
 3. **Extensibility**: Easy to add new songs and features
 
-### Future Improvements
-- [ ] Difficulty-based song classification system
-- [ ] Performance accuracy scoring system
-- [ ] Leaderboard feature
-- [ ] More songs (nursery rhymes, K-POP, etc.)
-- [ ] Rhythm game mode
-- [ ] Multiplayer functionality
-
 ---
 
 ## 📄 License
