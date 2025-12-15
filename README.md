@@ -1,16 +1,19 @@
-# 🎹 AR Piano Learning Game
+# 🎹 AR Children's Song Piano
 
 > 🎓 **Immersive Media Midterm Project**  
-> Interactive Piano Learning Game Using AR Image Tracking Technology
+> Interactive Music Learning App for Kids
 
 ## 📖 Project Overview
 
-An **AR music education game** that recognizes physical image markers to display 3D sheet music and allows users to play songs using virtual piano keys.
+An **educational music learning app** where children can point their camera at picture books to reveal an AR piano.
 
-- 🎯 **Point your camera at a specific image** → Sheet music for that song appears in AR
-- 🎹 **Press the on-screen piano keys in order** → Play the song
-- ✅ **Press the correct note** → Visual feedback and progress to the next note
-- 🎉 **Complete the song** → Success popup with retry option
+**🎯 Target Audience**: Ages 5-10 (Music Education for Kids)
+
+**Core Values**:
+- 📚 Combining picture books with AR technology
+- 🎵 Learning basic musical notes (Do, Re, Mi, Fa, Sol, La, Si)
+- 👆 Touch interactions with visual feedback
+- ⏱️ Self-paced learning at each child's comfortable speed
 
 ---
 
@@ -22,34 +25,77 @@ An **AR music education game** that recognizes physical image markers to display
 
 ---
 
-## 🎮 How to Play
+## 🎮 How to Use
 
-### Step 1: Image Marker Recognition
-Point your camera at a specific image (e.g., star, airplane) to generate 3D sheet music in AR space.
+### 1️⃣ App Launch & Tutorial
+When you launch the app, an **Info Popup** appears to guide you through the features.
+- Welcome page with "See Songs!" button to view available songs
+- Introduction cards for each children's song (Airplane, Twinkle Twinkle Little Star, Butterfly)
+- "Let's Play!" button to start the game
 
-### Step 2: Follow the Sheet Music
-Press the piano keys at the bottom of the screen in the order shown on the sheet music.
-- ✅ **Correct**: Green checkmark → Progress to next note
-- ❌ **Wrong**: Red X mark → Try again
+### 2️⃣ Image Recognition
+Point the camera at a children's song picture card.
+- 📖 **Image Detection** → AR piano keyboard appears overlaid on the book
+- 🎼 The **song title** and **sheet music** are displayed on screen
 
-### Step 3: Song Completion
-When all notes are played correctly, a success popup appears, allowing you to retry or select another song.
+### 3️⃣ Piano Playing
+Follow the sheet music and press the piano keys in order.
+- ✅ **Correct**: Green checkmark (✓) → Progress to next note
+- ❌ **Wrong**: Red X mark (✗) → Try again
+
+### 4️⃣ Song Completion
+When all notes are played correctly, a congratulations popup appears!
+- 🔄 **Retry**: Challenge the same song again
+- ❌ **Close**: Select a different song
+
+---
+
+## ✨ Key Features
+
+### 🎯 AR Image Recognition
+- Uses **XR Reference Image Library**
+- Supports **3 children's song picture cards**:
+  - ✈️ Airplane
+  - ⭐ Twinkle Twinkle Little Star  
+  - 🦋 Butterfly
+- Automatically displays the corresponding piano keyboard upon image recognition
+
+### 🎹 Interactive Piano
+- **7-note color keyboard**: C(Do), D(Re), E(Mi), F(Fa), G(Sol), A(La), B(Si)
+- Each key distinguished by its own unique color
+- Real piano sound plays when touched
+- Sheet music and keyboard displayed together on screen
+
+### 📊 Real-time Feedback
+- **Immediate visual feedback**:
+  - ✅ Correct: Green checkmark
+  - ❌ Wrong: Red X mark
+- Sheet music progress indicator
+- Automatic transition to next line upon line completion
+
+### 🎨 Intuitive UI/UX
+- **Info Popup**: 4-page tutorial system
+  - Page 1: Welcome & "See Songs!" button
+  - Page 2-4: Individual song introduction cards
+  - Next/Back buttons for page navigation
+  - "Let's Play!" button on final page
+- **Success Popup**: Congratulations message upon song completion
+- **Top buttons**: Info, Retry, Exit
 
 ---
 
 ## 🛠 Tech Stack
 
 ### Development Environment
-| Technology | Version/Description |
-|------------|---------------------|
-| **Unity** | 6000.0 37f1 |
-| **AR Foundation** | 5.x |
-| **AR Tracked Image Manager** | Image tracking |
-| **TextMeshPro** | UI text rendering |
+- **Unity 2021.2+**
+- **AR Foundation 5.x**
+- **ARKit** (iOS)
+- **TextMeshPro** (UI Text)
 
-### Platform Support
-- 📱 **iOS** (ARKit)
-- 🤖 **Android** (ARCore)
+### Main Components
+- `AR Tracked Image Manager` - Image recognition
+- `AR Session Origin` - AR space management
+- `Canvas (HUD)` - Fixed UI elements
 
 ---
 
@@ -58,48 +104,31 @@ When all notes are played correctly, a success popup appears, allowing you to re
 ```
 Unity-AR-Project/
 ├── Assets/
-│   ├── Scenes/                    # Main AR scenes
-│   ├── Scripts/                   # C# scripts
-│   │   ├── FinalImageTracker.cs   # AR image recognition & object spawning
-│   │   ├── GameManager.cs         # Game logic & song progression
-│   │   ├── PianoKey.cs            # Piano key input handling
-│   │   ├── SheetMusicInfo.cs      # Sheet music data structure
-│   │   └── UIManager.cs           # UI popup & page management
-│   ├── Prefabs/                   # 3D sheet music prefabs
-│   ├── Materials/                 # Materials & textures
-│   ├── Audio/                     # Piano sound files
-│   └── UI/                        # UI images & icons
+│   ├── Scenes/                    # AR Piano main scene
+│   ├── Scripts/                   # Game logic scripts
+│   │   ├── FinalImageTracker.cs   # AR image recognition management
+│   │   ├── GameManager.cs         # Game progression logic
+│   │   ├── PianoKey.cs            # Piano key input
+│   │   ├── SheetMusicInfo.cs      # Sheet music data
+│   │   └── UIManager.cs           # UI popup management
+│   ├── Images/                    # Children's song picture cards
+│   │   ├── airplane.png
+│   │   ├── star.png
+│   │   └── butterfly.png
+│   ├── Audio/                     # Piano sounds
+│   ├── UI/                        # UI images & icons
+│   └── Prefabs/                   # Sheet music prefabs
 ├── ContentPackages/               # AR image library
-├── Packages/                      # Unity package dependencies
-└── ProjectSettings/               # Project settings
+└── ProjectSettings/               # Unity project settings
 ```
 
 ---
 
-## ✨ Key Features
+## 🎼 Available Songs
 
-### 🎯 AR Image Tracking
-- **Multiple Image Recognition**: Recognize multiple image markers simultaneously
-- **Dynamic Object Placement**: Real-time 3D sheet music placement on recognized markers
-- **Tracking State Management**: Automatic object hiding when marker is lost
-
-### 🎹 Interactive Piano System
-- **7-Note Scale**: Do, Re, Mi, Fa, Sol, La, Si
-- **Real-time Sound Feedback**: Piano tone playback for each key
-- **Visual Feedback**: 
-  - ✅ Correct: Green checkmark
-  - ❌ Wrong: Red X mark
-
-### 📊 Game Progress Management
-- **Automatic Page Turning**: Auto-transition to next line on completion
-- **Progress State Saving**: Track current note and line being played
-- **Song Completion Detection**: Success popup after final note
-
-### 🎨 UI/UX
-- **Tutorial System**: Usage guide on app start
-- **Song Selection Screen**: Display available songs
-- **Success Popup**: Congratulations message and retry option on completion
-- **Feedback Animation**: Feedback displays for 0.15 seconds then auto-hides
+✈️ **Airplane** 
+⭐ **Twinkle Twinkle Little Star** 
+🦋 **Butterfly** 
 
 ---
 
