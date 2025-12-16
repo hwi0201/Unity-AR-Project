@@ -19,7 +19,9 @@ An **educational music learning app** where children can point their camera at p
 
 ## 🎬 Demo Video
 
-[![AR Piano Learning Game Demo](https://i.ibb.co/jPbBB9FS/appicon.png)](https://youtube.com/shorts/iaHR3xAzIWU)
+<a href="https://youtube.com/shorts/iaHR3xAzIWU" target="_blank">
+  <img src="https://i.ibb.co/jPbBB9FS/appicon.png" width="300" style="max-width:100%; height:auto;" alt="AR Piano Learning Game Demo"/>
+</a>
 
 *Click the image above to watch the demo video!*
 
