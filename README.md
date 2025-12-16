@@ -128,9 +128,20 @@ Unity-AR-Project/
 
 ## 🎼 Available Songs
 
-- ✈️ **Airplane** 
-- ⭐ **Twinkle Twinkle Little Star** 
-- 🦋 **Butterfly** 
+- ⭐ **Twinkle Twinkle Little Star**
+<a href="https://i.ibb.co/jvC2wTy6/star.png" target="_blank">
+  <img src="https://i.ibb.co/jvC2wTy6/star.png" width="300" style="max-width:100%; height:auto;" alt="프로토타입 미리보기"/>
+</a>
+
+- ✈️ **Airplane**
+<a href="https://i.ibb.co/tPkcKhKY/airplane.png" target="_blank">
+  <img src="https://i.ibb.co/tPkcKhKY/airplane.png" width="300" style="max-width:100%; height:auto;" alt="프로토타입 미리보기"/>
+</a>
+
+- 🦋 **Butterfly**
+<a href="https://i.ibb.co/93TYQGv7/butterfly.png" target="_blank">
+  <img src="https://i.ibb.co/93TYQGv7/butterfly.png" width="300" style="max-width:100%; height:auto;" alt="프로토타입 미리보기"/>
+</a>
 
 ---
 
